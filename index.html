@@ -1,52 +1,95 @@
 <!DOCTYPE html>
 <html lang="th">
-<head>2<meta charset="UTF-8">3<meta name="viewport" content="width=device-width, initial-scale=1.0">4 5<title>INTERN1</title>6 7<link8rel="stylesheet> 3<link rel="stylesheet" href="css/style.css
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<body>
+<title>INTERN 1</title>
 
-<h1>
-งานการศึกษา หลังปริญญา
-</h1>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap');
 
-<h2>
-กลุ่มงานอายุรกรรม
-</h2>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
-<p>
-โรงพยาบาลพุทธชินราช พิษณุโลก
-</p>
+body{
+font-family:'Prompt',sans-serif;
+background:linear-gradient(135deg,#0b4ea2,#3f89ff);
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:20px;
+}
 
-<hr>
+.login-box{
+width:100%;
+max-width:520px;
+background:white;
+padding:40px;
+border-radius:30px;
+box-shadow:0 25px 80px rgba(0,0,0,.2);
+}
 
-<input
-type="email"
-placeholder="Username / Email"
->
+.logo{
+width:90px;
+height:90px;
+margin:auto;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+background:#2d6fd2;
+color:white;
+font-size:34px;
+font-weight:700;
+}
 
-<br><br>
+h1{
+text-align:center;
+margin-top:20px;
+color:#0b4ea2;
+font-size:48px;
+}
 
-<input
-type="password"
-placeholder="Password"
->
+.subtitle{
+text-align:center;
+color:#888;
+margin-top:10px;
+margin-bottom:35px;
+}
 
-<br><br>
+label{
+display:block;
+margin-bottom:8px;
+font-weight:600;
+}
 
-<button>
-เข้าสู่ระบบ
-</button>
+input{
+width:100%;
+height:58px;
+padding:0 15px;
+border-radius:15px;
+border:1px solid #ddd;
+margin-bottom:20px;
+font-size:16px;
+}
 
-<br><br>
+.login-btn{
+width:100%;
+height:58px;
+border:none;
+border-radius:15px;
+background:linear-gradient(135deg,#0b4ea2,#4a94ff);
+color:white;
+font-size:18px;
+font-weight:600;
+cursor:pointer;
+}
 
-<button
-onclick="window.location.href='register.html'"
->
-ลงทะเบียน
-</button>
-
-<button>
-ลืมรหัสผ่าน
-</button>
-
-</body>
-</html>
+.links{
+display:flex;
+justify-content:space
