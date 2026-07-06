@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>INTERN 1</title>
 
 <style>
@@ -17,49 +16,49 @@ box-sizing:border-box;
 
 body{
 font-family:'Prompt',sans-serif;
-background:linear-gradient(135deg,#0b4ea2,#3f89ff);
 min-height:100vh;
+background:linear-gradient(135deg,#123b7a,#2d74da);
 display:flex;
 justify-content:center;
 align-items:center;
 padding:20px;
 }
 
-.login-box{
+.login-card{
 width:100%;
 max-width:520px;
-background:white;
-padding:40px;
+background:#fff;
 border-radius:30px;
-box-shadow:0 25px 80px rgba(0,0,0,.2);
+padding:40px;
+box-shadow:0 30px 80px rgba(0,0,0,.18);
 }
 
 .logo{
-width:90px;
-height:90px;
+width:100px;
+height:100px;
 margin:auto;
 border-radius:50%;
+background:#2d74da;
 display:flex;
 justify-content:center;
 align-items:center;
-background:#2d6fd2;
-color:white;
-font-size:34px;
+color:#fff;
+font-size:36px;
 font-weight:700;
 }
 
 h1{
 text-align:center;
-margin-top:20px;
+font-size:52px;
 color:#0b4ea2;
-font-size:48px;
+margin-top:20px;
 }
 
 .subtitle{
 text-align:center;
 color:#888;
 margin-top:10px;
-margin-bottom:35px;
+margin-bottom:30px;
 }
 
 label{
@@ -71,9 +70,9 @@ font-weight:600;
 input{
 width:100%;
 height:58px;
-padding:0 15px;
-border-radius:15px;
 border:1px solid #ddd;
+border-radius:15px;
+padding:0 18px;
 margin-bottom:20px;
 font-size:16px;
 }
@@ -84,7 +83,7 @@ height:58px;
 border:none;
 border-radius:15px;
 background:linear-gradient(135deg,#0b4ea2,#4a94ff);
-color:white;
+color:#fff;
 font-size:18px;
 font-weight:600;
 cursor:pointer;
@@ -92,4 +91,49 @@ cursor:pointer;
 
 .links{
 display:flex;
-justify-content:space
+justify-content:space-between;
+margin-top:25px;
+}
+
+.links a{
+text-decoration:none;
+color:#0b4ea2;
+font-weight:600;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="login-card">
+
+<div class="logo">
+MED
+</div>
+
+<h1>INTERN 1</h1>
+
+<p class="subtitle">
+งานการศึกษา หลังปริญญา<br>
+กลุ่มงานอายุรกรรม<br>
+โรงพยาบาลพุทธชินราช พิษณุโลก
+</p>
+
+<label>Username / Email</label>
+
+<input
+type="email"
+placeholder="example@hospital.com"
+>
+
+<label>Password</label>
+
+<input
+type="password"
+placeholder="••••••••"
+>
+
+<button
+class="login-btn"
+onclick="window.
