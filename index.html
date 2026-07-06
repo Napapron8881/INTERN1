@@ -1,38 +1,28 @@
 <!DOCTYPE html>
 <html lang="th">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>INTERN 1</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap');
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
 body{
-font-family:'Prompt',sans-serif;
-background:linear-gradient(135deg,#143a75,#3b82f6);
+margin:0;
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#123b7a,#3b82f6);
 min-height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-padding:20px;
 }
 
-.login-card{
-width:100%;
+.card{
+background:white;
+width:90%;
 max-width:550px;
-background:#fff;
-padding:45px;
+padding:40px;
 border-radius:30px;
-box-shadow:0 25px 80px rgba(0,0,0,.18);
+box-shadow:0 20px 80px rgba(0,0,0,.2);
 }
 
 .logo{
@@ -40,66 +30,43 @@ width:100px;
 height:100px;
 border-radius:50%;
 background:#2d74da;
+margin:auto;
 display:flex;
 justify-content:center;
 align-items:center;
-margin:auto;
 color:white;
-font-size:38px;
-font-weight:700;
+font-size:35px;
+font-weight:bold;
 }
 
 h1{
 text-align:center;
-font-size:52px;
-margin-top:20px;
 color:#0b4ea2;
 }
 
-.subtitle{
+p{
 text-align:center;
-margin-top:10px;
-margin-bottom:35px;
-color:#777;
-line-height:1.8;
-}
-
-label{
-display:block;
-margin-bottom:8px;
-font-weight:600;
+color:#666;
 }
 
 input{
 width:100%;
-height:58px;
+height:50px;
+margin-bottom:15px;
+padding:0 15px;
 border:1px solid #ddd;
-border-radius:15px;
-padding:0 18px;
-font-size:16px;
-margin-bottom:20px;
+border-radius:12px;
 }
 
-input:focus{
-outline:none;
-border-color:#0b4ea2;
-box-shadow:0 0 0 4px rgba(11,78,162,.12);
-}
-
-.login-btn{
+button{
 width:100%;
-height:58px;
+height:50px;
 border:none;
-border-radius:15px;
-background:linear-gradient(135deg,#0b4ea2,#4a94ff);
-color:#fff;
-font-size:18px;
-font-weight:600;
+border-radius:12px;
+background:#0b4ea2;
+color:white;
+font-size:16px;
 cursor:pointer;
-}
-
-.login-btn:hover{
-transform:translateY(-2px);
 }
 
 .links{
@@ -110,8 +77,8 @@ margin-top:20px;
 
 .links a{
 text-decoration:none;
-font-weight:600;
 color:#0b4ea2;
+font-weight:bold;
 }
 </style>
 
@@ -119,7 +86,7 @@ color:#0b4ea2;
 
 <body>
 
-<div class="login-card">
+<div class="card">
 
 <div class="logo">
 MED
@@ -127,40 +94,33 @@ MED
 
 <h1>INTERN 1</h1>
 
-<p class="subtitle">
+<p>
 งานการศึกษา หลังปริญญา<br>
 กลุ่มงานอายุรกรรม<br>
 โรงพยาบาลพุทธชินราช พิษณุโลก
 </p>
 
-<label>Username / Email</label>
-
 <input
 type="email"
-placeholder="example@hospital.com"
+placeholder="Username / Email"
 >
-
-<label>Password</label>
 
 <input
 type="password"
-placeholder="••••••••"
+placeholder="Password"
 >
 
-<button
-class="login-btn"
-onclick="window.location.href='dashboard.html'"
->
+<button>
 เข้าสู่ระบบ
 </button>
 
 <div class="links">
 
-register.html
+<a href="register.html">
 ลงทะเบียน
 </a>
 
-forgot-password.html
+<a href="forgot-password.html">
 ลืมรหัสผ่าน
 </a>
 
