@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>INTERN 1</title>
 
 <style>
@@ -16,8 +18,8 @@ box-sizing:border-box;
 
 body{
 font-family:'Prompt',sans-serif;
+background:linear-gradient(135deg,#143a75,#3b82f6);
 min-height:100vh;
-background:linear-gradient(135deg,#123b7a,#2d74da);
 display:flex;
 justify-content:center;
 align-items:center;
@@ -26,39 +28,40 @@ padding:20px;
 
 .login-card{
 width:100%;
-max-width:520px;
+max-width:550px;
 background:#fff;
+padding:45px;
 border-radius:30px;
-padding:40px;
-box-shadow:0 30px 80px rgba(0,0,0,.18);
+box-shadow:0 25px 80px rgba(0,0,0,.18);
 }
 
 .logo{
 width:100px;
 height:100px;
-margin:auto;
 border-radius:50%;
 background:#2d74da;
 display:flex;
 justify-content:center;
 align-items:center;
-color:#fff;
-font-size:36px;
+margin:auto;
+color:white;
+font-size:38px;
 font-weight:700;
 }
 
 h1{
 text-align:center;
 font-size:52px;
-color:#0b4ea2;
 margin-top:20px;
+color:#0b4ea2;
 }
 
 .subtitle{
 text-align:center;
-color:#888;
 margin-top:10px;
-margin-bottom:30px;
+margin-bottom:35px;
+color:#777;
+line-height:1.8;
 }
 
 label{
@@ -73,8 +76,14 @@ height:58px;
 border:1px solid #ddd;
 border-radius:15px;
 padding:0 18px;
-margin-bottom:20px;
 font-size:16px;
+margin-bottom:20px;
+}
+
+input:focus{
+outline:none;
+border-color:#0b4ea2;
+box-shadow:0 0 0 4px rgba(11,78,162,.12);
 }
 
 .login-btn{
@@ -89,16 +98,20 @@ font-weight:600;
 cursor:pointer;
 }
 
+.login-btn:hover{
+transform:translateY(-2px);
+}
+
 .links{
 display:flex;
 justify-content:space-between;
-margin-top:25px;
+margin-top:20px;
 }
 
 .links a{
 text-decoration:none;
-color:#0b4ea2;
 font-weight:600;
+color:#0b4ea2;
 }
 </style>
 
@@ -136,4 +149,24 @@ placeholder="••••••••"
 
 <button
 class="login-btn"
-onclick="window.
+onclick="window.location.href='dashboard.html'"
+>
+เข้าสู่ระบบ
+</button>
+
+<div class="links">
+
+register.html
+ลงทะเบียน
+</a>
+
+forgot-password.html
+ลืมรหัสผ่าน
+</a>
+
+</div>
+
+</div>
+
+</body>
+</html>
