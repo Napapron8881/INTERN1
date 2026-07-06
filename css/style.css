@@ -55,3 +55,25 @@ margin-top:15px;
 .links button{
 width:48%;
 }
+.links{
+display:flex;
+justify-content:center;
+gap:20px;
+margin-top:25px;
+}
+
+.link-btn{
+padding:12px 24px;
+border-radius:12px;
+background:#eef4ff;
+color:#0b4ea2;
+font-weight:600;
+text-decoration:none;
+transition:.3s;
+}
+
+.link-btn:hover{
+background:#0b4ea2;
+color:white;
+transform:translateY(-2px);
+}
