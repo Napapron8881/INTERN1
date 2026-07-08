@@ -3,37 +3,60 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ลงทะเบียน</title>
+
+<title>ลงทะเบียนผู้ใช้งาน</title>
 
 <style>
 body{
-font-family:Prompt,sans-serif;
-background:#0b4ea2;
-display:flex;
-justify-content:center;
-align-items:center;
-min-height:100vh;
+  font-family:Arial,sans-serif;
+  background:linear-gradient(135deg,#143a75,#3b82f6);
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin:0;
 }
 
 .box{
-background:white;
-padding:40px;
-border-radius:20px;
-width:450px;
+  background:white;
+  width:90%;
+  max-width:550px;
+  padding:40px;
+  border-radius:25px;
+  box-shadow:0 20px 70px rgba(0,0,0,.2);
+}
+
+h1{
+  text-align:center;
+  color:#0b4ea2;
+  margin-bottom:25px;
 }
 
 input{
-width:100%;
-height:50px;
-margin-bottom:15px;
+  width:100%;
+  height:55px;
+  margin-bottom:15px;
+  padding:0 15px;
+  border:1px solid #ddd;
+  border-radius:12px;
+  box-sizing:border-box;
 }
 
 button{
-width:100%;
-height:50px;
-background:#0b4ea2;
-color:white;
-border:none;
+  width:100%;
+  height:55px;
+  border:none;
+  border-radius:12px;
+  background:#0b4ea2;
+  color:white;
+  font-size:16px;
+  cursor:pointer;
+}
+
+.back{
+  margin-top:10px;
+  background:#e0e0e0;
+  color:#333;
 }
 </style>
 
@@ -44,6 +67,8 @@ border:none;
 <div class="box">
 
 <h1>ลงทะเบียนผู้ใช้งาน</h1>
+
+<input type="text" placeholder="Username *">
 
 <input type="text" placeholder="ชื่อ">
 
@@ -57,12 +82,20 @@ border:none;
 
 <input type="password" placeholder="รหัสผ่าน">
 
+<input type="password" placeholder="ยืนยันรหัสผ่าน">
+
 <button>
 ลงทะเบียน
+</button>
+
+<button
+class="back"
+onclick="window.location.href='index.html'"
+>
+กลับหน้าเข้าสู่ระบบ
 </button>
 
 </div>
 
 </body>
 </html>
-<link2rel="stylesheet"3href="css/style.css"4>
