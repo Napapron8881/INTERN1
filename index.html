@@ -8,79 +8,81 @@
 <style>
 
 body{
-margin:0;
-font-family:Arial,sans-serif;
-background:linear-gradient(135deg,#123b7a,#3b82f6);
-min-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:linear-gradient(135deg,#123b7a,#3b82f6);
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
 
 .card{
-background:white;
-width:90%;
-max-width:550px;
-padding:40px;
-border-radius:30px;
-box-shadow:0 20px 80px rgba(0,0,0,.2);
+  background:white;
+  width:90%;
+  max-width:550px;
+  padding:40px;
+  border-radius:30px;
+  box-shadow:0 20px 80px rgba(0,0,0,.2);
 }
 
 .logo{
-width:100px;
-height:100px;
-border-radius:50%;
-background:#2d74da;
-margin:auto;
-display:flex;
-justify-content:center;
-align-items:center;
-color:white;
-font-size:35px;
-font-weight:bold;
+  width:100px;
+  height:100px;
+  border-radius:50%;
+  background:#2d74da;
+  margin:auto;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:white;
+  font-size:35px;
+  font-weight:bold;
 }
 
 h1{
-text-align:center;
-color:#0b4ea2;
+  text-align:center;
+  color:#0b4ea2;
 }
 
 p{
-text-align:center;
-color:#666;
+  text-align:center;
+  color:#666;
 }
 
 input{
-width:100%;
-height:50px;
-margin-bottom:15px;
-padding:0 15px;
-border:1px solid #ddd;
-border-radius:12px;
+  width:100%;
+  height:50px;
+  margin-bottom:15px;
+  padding:0 15px;
+  border:1px solid #ddd;
+  border-radius:12px;
+  box-sizing:border-box;
 }
 
 button{
-width:100%;
-height:50px;
-border:none;
-border-radius:12px;
-background:#0b4ea2;
-color:white;
-font-size:16px;
-cursor:pointer;
+  width:100%;
+  height:50px;
+  border:none;
+  border-radius:12px;
+  background:#0b4ea2;
+  color:white;
+  font-size:16px;
+  cursor:pointer;
 }
 
 .links{
-display:flex;
-justify-content:space-between;
-margin-top:20px;
+  display:flex;
+  justify-content:space-between;
+  margin-top:20px;
 }
 
 .links a{
-text-decoration:none;
-color:#0b4ea2;
-font-weight:bold;
+  text-decoration:none;
+  color:#0b4ea2;
+  font-weight:bold;
 }
+
 </style>
 
 </head>
@@ -89,35 +91,41 @@ font-weight:bold;
 
 <div class="card">
 
-<div class="logo">
-MED
+  <div class="logo">
+    MED
+  </div>
+
+  <h1>INTERN 1</h1>
+
+  <p>
+    งานการศึกษา หลังปริญญา<br>
+    กลุ่มงานอายุรกรรม<br>
+    โรงพยาบาลพุทธชินราช พิษณุโลก
+  </p>
+
+  <input
+    type="text"
+    id="username"
+    placeholder="Username"
+  >
+
+  <input
+    type="password"
+    id="password"
+    placeholder="Password"
+  >
+
+  <button onclick="loginUser()">
+    เข้าสู่ระบบ
+  </button>
+
+  <div class="links">
+    <a href="register.html">ลงทะเบียน</a>
+    <a href="forgot-password.html">ลืมรหัสผ่าน</a>
+  </div>
+
 </div>
 
-<h1>INTERN 1</h1>
-
-<p>
-งานการศึกษา หลังปริญญา<br>
-กลุ่มงานอายุรกรรม<br>
-โรงพยาบาลพุทธชินราช พิษณุโลก
-</p>
-
-<input
-type="text"
-id="username"
-placeholder="Username"
->
-
-<input
-type="password"
-id="password"
-placeholder="Password"
->
-
-<button onclick="loginUser()">
-เข้าสู่ระบบ
-</button>
-
-<div class="links"><a class="link-btn" href="register.html">ลงทะเบียน</a> <a class="link-btn" href="forgot-password.html">ลืมรหัสผ่าน</a> </div>
 <script>
 
 const API_URL =
@@ -162,10 +170,18 @@ function callAPI(params, callbackName){
 function loginUser(){
 
   const username =
-  document.getElementById("username").value;
+  document.getElementById("username").value.trim();
 
   const password =
-  document.getElementById("password").value;
+  document.getElementById("password").value.trim();
+
+  if(!username || !password){
+
+    alert("กรุณากรอก Username และ Password");
+
+    return;
+
+  }
 
   callAPI({
     action:"login",
@@ -205,31 +221,8 @@ function loginUser(){
   });
 
 }
-`
-})
-
-      localStorage.setItem(
-        "currentUser",
-        JSON.stringify(data.user)
-      );
-
-      window.location.href =
-      "dashboard.html";
-
-    }else{
-
-      alert(data.message || "เข้าสู่ระบบไม่สำเร็จ");
-
-    }
-
-  })
-
-  .catch(function(){
-    alert("เชื่อมต่อระบบไม่ได้");
-  });
-
-}
 
 </script>
+
 </body>
 </html>
