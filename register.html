@@ -203,21 +203,21 @@ function registerUser(){
     password:password
   },"registerCallback")
 
-  .then(function(data){
+.then(function(data){
 
-    if(data.success){
-      alert("ลงทะเบียนสำเร็จ");
-      window.location.href = "index.html";
-    }else{
-      alert(data.message || "ลงทะเบียนไม่สำเร็จ");
-    }
+  alert("ลงทะเบียนสำเร็จ");
 
-  })
+  window.location.href =
+  "index.html";
 
-  .catch(function(){
-    alert("เชื่อมต่อระบบไม่ได้");
-  });
+})
 
+.catch(function(error){
+
+  console.log(error);
+
+});
+  
 }
 
 </script>
