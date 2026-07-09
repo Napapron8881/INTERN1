@@ -6,7 +6,6 @@
 <title>INTERN 1</title>
 
 <style>
-
 body{
   margin:0;
   font-family:Arial,sans-serif;
@@ -82,7 +81,6 @@ button{
   color:#0b4ea2;
   font-weight:bold;
 }
-
 </style>
 
 </head>
@@ -91,38 +89,36 @@ button{
 
 <div class="card">
 
-  <div class="logo">
-    MED
-  </div>
+<div class="logo">MED</div>
 
-  <h1>INTERN 1</h1>
+<h1>INTERN 1</h1>
 
-  <p>
-    งานการศึกษา หลังปริญญา<br>
-    กลุ่มงานอายุรกรรม<br>
-    โรงพยาบาลพุทธชินราช พิษณุโลก
-  </p>
+<p>
+งานการศึกษา หลังปริญญา<br>
+กลุ่มงานอายุรกรรม<br>
+โรงพยาบาลพุทธชินราช พิษณุโลก
+</p>
 
-  <input
-    type="text"
-    id="username"
-    placeholder="Username"
-  >
+<input
+type="text"
+id="username"
+placeholder="Username"
+>
 
-  <input
-    type="password"
-    id="password"
-    placeholder="Password"
-  >
+<input
+type="password"
+id="password"
+placeholder="Password"
+>
 
-  <button onclick="loginUser()">
-    เข้าสู่ระบบ
-  </button>
+<button onclick="loginUser()">
+เข้าสู่ระบบ
+</button>
 
-  <div class="links">
-    <a href="register.html">ลงทะเบียน</a>
-    <a href="forgot-password.html">ลืมรหัสผ่าน</a>
-  </div>
+<div class="links">
+<a href="register.html">ลงทะเบียน</a>
+<a href="forgot-password.html">ลืมรหัสผ่าน</a>
+</div>
 
 </div>
 
@@ -169,21 +165,13 @@ function callAPI(params, callbackName){
 
 function loginUser(){
 
-3  alert("LOGIN CLICK");
-  
+  alert("LOGIN CLICK");
+
   const username =
-  document.getElementById("username").value.trim();
+  document.getElementById("username").value;
 
   const password =
-  document.getElementById("password").value.trim();
-
-  if(!username || !password){
-
-    alert("กรุณากรอก Username และ Password");
-
-    return;
-
-  }
+  document.getElementById("password").value;
 
   callAPI({
     action:"login",
@@ -205,10 +193,7 @@ function loginUser(){
 
     }else{
 
-      alert(
-        data.message ||
-        "เข้าสู่ระบบไม่สำเร็จ"
-      );
+      alert(data.message);
 
     }
 
@@ -216,9 +201,7 @@ function loginUser(){
 
   .catch(function(){
 
-    alert(
-      "เชื่อมต่อระบบไม่ได้"
-    );
+    alert("เชื่อมต่อระบบไม่ได้");
 
   });
 
@@ -228,3 +211,4 @@ function loginUser(){
 
 </body>
 </html>
+``
