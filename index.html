@@ -111,11 +111,92 @@ type="password"
 placeholder="Password"
 >
 
-<button>
+<button onclick="loginUser()">
 เข้าสู่ระบบ
 </button>
 
 <div class="links"><a class="link-btn" href="register.html">ลงทะเบียน</a> <a class="link-btn" href="forgot-password.html">ลืมรหัสผ่าน</a> </div>
+<script>
 
+const API_URL =
+"https://script.google.com/macros/s/AKfycbw-VcSqb_SD74JmGuyBmrsQUC1sTWQfwS57j_qrThDmYbxqujx5lGki-WQoJ8p2UwH8Yg/exec";
+
+function callAPI(params, callbackName){
+
+  return new Promise(function(resolve, reject){
+
+    const callback =
+    callbackName + "_" + Date.now();
+
+    params.callback = callback;
+
+    const query =
+    new URLSearchParams(params).toString();
+
+    const script =
+    document.createElement("script");
+
+    window[callback] = function(data){
+      resolve(data);
+      delete window[callback];
+      script.remove();
+    };
+
+    script.onerror = function(){
+      reject();
+      delete window[callback];
+      script.remove();
+    };
+
+    script.src =
+    API_URL + "?" + query;
+
+    document.body.appendChild(script);
+
+  });
+
+}
+
+function loginUser(){
+
+  const username =
+  document.getElementById("username").value;
+
+  const password =
+  document.getElementById("password").value;
+
+  callAPI({
+    action:"login",
+    username:username,
+    password:password
+  },"loginCallback")
+
+  .then(function(data){
+
+    if(data.success){
+
+      localStorage.setItem(
+        "currentUser",
+        JSON.stringify(data.user)
+      );
+
+      window.location.href =
+      "dashboard.html";
+
+    }else{
+
+      alert(data.message || "เข้าสู่ระบบไม่สำเร็จ");
+
+    }
+
+  })
+
+  .catch(function(){
+    alert("เชื่อมต่อระบบไม่ได้");
+  });
+
+}
+
+</script>
 </body>
 </html>
