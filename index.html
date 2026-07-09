@@ -175,9 +175,23 @@ function loginUser(){
 
 .then(function(data){
 
-    console.log(data);
-
     if(data.success){
+
+      localStorage.setItem(
+        "currentUser",
+        JSON.stringify(data.user)
+      );
+
+      window.location.href =
+      "dashboard.html";
+
+    }else{
+
+      alert(data.message || "เข้าสู่ระบบไม่สำเร็จ");
+
+    }
+
+})
 
       localStorage.setItem(
         "currentUser",
