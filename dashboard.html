@@ -7,298 +7,143 @@
 <title>Dashboard</title>
 
 <style>
-body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:linear-gradient(135deg,#143a75,#3b82f6);
-  min-height:100vh;
-  padding:30px;
-}
 
-.dashboard{
-  max-width:1100px;
-  margin:auto;
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#f5f7fb;
 }
 
 .header{
-  background:white;
-  padding:30px;
-  border-radius:25px;
-  margin-bottom:20px;
-  box-shadow:0 20px 70px rgba(0,0,0,.15);
+background:#0b4ea2;
+color:white;
+padding:20px;
 }
 
-.header h1{
-  color:#0b4ea2;
-  margin:0;
-}
-
-.summary{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:15px;
-  margin-bottom:20px;
+.container{
+padding:20px;
+max-width:1200px;
+margin:auto;
 }
 
 .card{
-  background:white;
-  padding:25px;
-  border-radius:20px;
-  box-shadow:0 15px 50px rgba(0,0,0,.12);
+background:white;
+padding:20px;
+border-radius:15px;
+margin-bottom:15px;
+box-shadow:0 2px 10px rgba(0,0,0,.1);
 }
 
-.card h2{
-  margin:0;
-  color:#0b4ea2;
+.title{
+font-size:22px;
+font-weight:bold;
+margin-bottom:10px;
 }
 
-.month{
-  background:white;
-  padding:25px;
-  border-radius:20px;
-  margin-bottom:15px;
-  box-shadow:0 15px 50px rgba(0,0,0,.12);
+.status-ok{
+color:green;
+font-weight:bold;
 }
 
-.status{
-  padding:6px 12px;
-  border-radius:20px;
-  display:inline-block;
-  font-weight:bold;
+.status-no{
+color:red;
+font-weight:bold;
 }
 
-.ok{
-  background:#e8f8ef;
-  color:#0b8f4d;
+button{
+background:#0b4ea2;
+color:white;
+border:none;
+padding:10px 20px;
+border-radius:10px;
+cursor:pointer;
 }
 
-.missing{
-  background:#ffecec;
-  color:#d93025;
-}
-
-.off{
-  background:#eaf3ff;
-  color:#0b4ea2;
-}
-
-.logout{
-  margin-top:15px;
-  padding:12px 20px;
-  border:none;
-  border-radius:12px;
-  background:#0b4ea2;
-  color:white;
-  cursor:pointer;
-}
-
-@media(max-width:700px){
-  .summary{
-    grid-template-columns:1fr;
-  }
-}
 </style>
 
 </head>
 
 <body>
 
-<div class="dashboard">
-
 <div class="header">
-<h1 id="welcome">Dashboard</h1>
-<p id="userInfo"></p>
 
-<button
-class="logout"
-onclick="logout()"
->
+<h2 id="name">
+กำลังโหลดข้อมูล...
+</h2>
+
+</div>
+
+<div class="container">
+
+<div class="card">
+
+<div class="title">
+ข้อมูลผู้ใช้งาน
+</div>
+
+<p id="userinfo"></p>
+
+</div>
+
+<div class="card">
+
+<div class="title">
+สถานะแบบประเมิน
+</div>
+
+<p class="status-no">
+อยู่ระหว่างพัฒนา
+</p>
+
+</div>
+
+<button onclick="logout()">
 ออกจากระบบ
 </button>
-</div>
-
-<div class="summary">
-
-<div class="card">
-<p>ต้องส่งทั้งหมด</p>
-<h2 id="totalRequired">0</h2>
-</div>
-
-<div class="card">
-<p>ส่งแล้ว</p>
-<h2 id="totalSubmitted">0</h2>
-</div>
-
-<div class="card">
-<p>ยังขาด</p>
-<h2 id="totalRemaining">0</h2>
-</div>
-
-</div>
-
-<div id="result"></div>
 
 </div>
 
 <script>
 
-const API_URL =
-"https://script.google.com/macros/s/AKfycbw-VcSqb_SD74JmGuyBmrsQUC1sTWQfwS57j_qrThDmYbxqujx5lGki-WQoJ8p2UwH8Yg/exec";
-
 const user =
-JSON.parse(localStorage.getItem("currentUser"));
+JSON.parse(
+localStorage.getItem("currentUser")
+);
 
 if(!user){
-  window.location.href = "index.html";
-}
 
-document.getElementById("welcome").innerText =
-"สวัสดี " + user.firstname + " " + user.lastname;
-
-document.getElementById("userInfo").innerText =
-"Username: " + user.username + " | ชื่อเล่น: " + user.nickname;
-
-function callAPI(params, callbackName){
-
-  return new Promise(function(resolve, reject){
-
-    const callback =
-    callbackName + "_" + Date.now();
-
-    params.callback = callback;
-
-    const query =
-    new URLSearchParams(params).toString();
-
-    const script =
-    document.createElement("script");
-
-    window[callback] = function(data){
-      resolve(data);
-      delete window[callback];
-      script.remove();
-    };
-
-    script.onerror = function(){
-      reject();
-      delete window[callback];
-      script.remove();
-    };
-
-    script.src =
-    API_URL + "?" + query;
-
-    document.body.appendChild(script);
-
-  });
+  window.location.href =
+  "index.html";
 
 }
 
-function loadEvaluations(){
+document.getElementById("name")
+.innerHTML =
+"สวัสดี " +
+user.firstname +
+" " +
+user.lastname;
 
-  callAPI({
-    action:"evaluations",
-    username:user.username
-  },"evalCallback")
+document.getElementById("userinfo")
+.innerHTML =
 
-  .then(function(data){
+"Username : " +
+user.username +
+"<br>" +
 
-    if(!data.success){
-      alert("โหลดข้อมูลไม่สำเร็จ");
-      return;
-    }
-
-    renderDashboard(data.rows);
-
-  })
-
-  .catch(function(){
-    alert("เชื่อมต่อระบบไม่ได้");
-  });
-
-}
-
-function renderDashboard(rows){
-
-  let totalRequired = 0;
-  let totalSubmitted = 0;
-  let totalRemaining = 0;
-
-  let html = "";
-
-  rows.forEach(function(row){
-
-    totalRequired += row.summary.required;
-    totalSubmitted += row.summary.submitted;
-    totalRemaining += row.summary.remaining;
-
-    html += `
-      <div class="month">
-        <h2>${row.rotation} - ${row.month}</h2>
-    `;
-
-    if(row.offMonth){
-      html += `
-        <p><span class="status off">ไม่ต้องส่ง เดือนนี้ไม่ได้ปฏิบัติงาน</span></p>
-      `;
-    }else{
-      html += `
-        <p>ต้องส่ง ${row.summary.required} ฉบับ</p>
-        <p>ส่งแล้ว ${row.summary.submitted} ฉบับ</p>
-        <p>ยังขาด ${row.summary.remaining} ฉบับ</p>
-
-        ${renderItem("Multisource feedback Staff", row.staff)}
-        ${renderItem("Multisource feedback Resident", row.resident)}
-        ${renderItem("EPA IPD", row.epa_ipd)}
-        ${renderItem("EPA OPD", row.epa_opd)}
-        ${renderItem("DOPS", row.dops)}
-      `;
-    }
-
-    html += `</div>`;
-
-  });
-
-  document.getElementById("totalRequired").innerText =
-  totalRequired;
-
-  document.getElementById("totalSubmitted").innerText =
-  totalSubmitted;
-
-  document.getElementById("totalRemaining").innerText =
-  totalRemaining;
-
-  document.getElementById("result").innerHTML =
-  html || "<div class='month'>ยังไม่พบข้อมูลแบบประเมินของคุณ</div>";
-
-}
-
-function renderItem(name, item){
-
-  if(item.remaining === 0){
-    return `
-      <p>
-        <span class="status ok">ครบ</span>
-        ${name} ส่งแล้ว ${item.submitted}/${item.required}
-      </p>
-    `;
-  }
-
-  return `
-    <p>
-      <span class="status missing">ยังขาด</span>
-      ${name} ส่งแล้ว ${item.submitted}/${item.required}
-      เหลือ ${item.remaining}
-    </p>
-  `;
-}
+"Email : " +
+user.email;
 
 function logout(){
-  localStorage.removeItem("currentUser");
-  window.location.href = "index.html";
-}
 
-loadEvaluations();
+  localStorage.removeItem(
+    "currentUser"
+  );
+
+  window.location.href =
+  "index.html";
+
+}
 
 </script>
 
